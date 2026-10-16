@@ -4,10 +4,16 @@
  */
 package garcia.workshop.domain.model;
 
-/**
- *
- * @author ruben
- */
+import java.time.LocalDateTime;
+
+
 public class Appointment {
-    
+    private Long id;
+    private String appointmentNumber;
+    private LocalDateTime scheduledAt;
+    private String vehicle_failure_Desc;
+    private AppointmentStatus status;
+    private Vehicle vehicle;
+    private Workshop workshop;
+    private Mechanic mechanic;
 }
