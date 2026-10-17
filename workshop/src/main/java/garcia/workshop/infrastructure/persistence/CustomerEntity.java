@@ -4,6 +4,7 @@
  */
 package garcia.workshop.infrastructure.persistence;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Table;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -26,10 +27,20 @@ public class CustomerEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    
+    @Column(name = "document_number", nullable = false, unique = true, length = 20)
     private String documentNumber;
+    
+    @Column(name = "first_name", nullable = false, length = 60)
     private String firstName;
+    
+    @Column(name = "last_name", nullable = false, length = 80)
     private String lastName;
+    
+    @Column(length = 20, nullable = false, unique = true)
     private String phone;
+
+    @Column(nullable = false, unique = true, length = 120)
     private String email;
     
    @ManyToMany

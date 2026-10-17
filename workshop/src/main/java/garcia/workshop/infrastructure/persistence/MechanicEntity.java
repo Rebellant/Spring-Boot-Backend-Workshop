@@ -5,6 +5,7 @@
 package garcia.workshop.infrastructure.persistence;
 
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Table;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,12 +26,24 @@ public class MechanicEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    
+   @Column(name = "document_number", nullable = false, unique = true, length = 20)
     private String documentNumber;
+
+    @Column(name = "first_name", nullable = false, length = 60)
     private String firstName;
+
+    @Column(name = "last_name", nullable = false, length = 80)
     private String lastName;
-    private String specialty;
+
+    @Column(length = 20)
     private String phone;
+
+    @Column(nullable = false, unique = true, length = 120)
     private String email;
+
+    @Column(length = 80)
+    private String specialty;
 
     @ManyToMany(mappedBy = "mechanics")
     Set<WorkshopEntity> workshops = new HashSet<>();

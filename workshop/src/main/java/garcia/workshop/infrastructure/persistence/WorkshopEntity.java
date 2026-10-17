@@ -4,6 +4,7 @@
  */
 package garcia.workshop.infrastructure.persistence;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.GeneratedValue;
@@ -26,14 +27,29 @@ public class WorkshopEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    
+   @Column(nullable = false, length = 100)
     private String name;
+
+    @Column(nullable = false, length = 150, unique = true)
     private String address;
+
+    @Column(name = "postal_code", nullable = false, length = 10)
     private String postalCode;
+
+    @Column(nullable = false, length = 80)
     private String city;
+
+    @Column(nullable = false, length = 60)
     private String country;
+
+    @Column(length = 20)
     private String phone;
+
+    @Column(nullable = false, length = 120)
     private String email;
     
+    @ManyToMany
     @JoinTable(
     name = "workshop_mechanic",
     joinColumns = @JoinColumn(name = "workshop_id"),

@@ -11,6 +11,7 @@ import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 import garcia.workshop.infrastructure.persistence.CustomerEntity;
+import jakarta.persistence.Column;
 import jakarta.persistence.ManyToMany;
 import java.util.HashSet;
 import java.util.Set;
@@ -24,11 +25,18 @@ public class VehicleEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String brand;
-    private String model;
+    
+    @Column(name = "license_plate", nullable = false, unique = true, length = 15)
     private String licensePlate;
+
+    @Column(length = 17, unique = true)
     private String vin;
-    private CustomerEntity customerE;
+
+    @Column(length = 50)
+    private String brand;
+
+    @Column(length = 50)
+    private String model;
 
 
     @ManyToMany(mappedBy = "vehicles")
@@ -37,13 +45,12 @@ public class VehicleEntity {
     public VehicleEntity() {
     }
 
-    public VehicleEntity(Long id, String brand, String model, String licensePlate, String vin, CustomerEntity customerE) {
+    public VehicleEntity(Long id, String brand, String model, String licensePlate, String vin) {
         this.id = id;
         this.brand = brand;
         this.model = model;
         this.licensePlate = licensePlate;
         this.vin = vin;
-        this.customerE = customerE;
     }
     
     

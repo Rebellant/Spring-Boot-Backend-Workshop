@@ -29,6 +29,7 @@
 	<properties>
 		<java.version>25</java.version>
 		<spring-ai.version>2.0.1</spring-ai.version>
+                <start-class>garcia.workshop.WorkshopApplication</start-class>
 	</properties>
 	<dependencies>
 		<dependency>
