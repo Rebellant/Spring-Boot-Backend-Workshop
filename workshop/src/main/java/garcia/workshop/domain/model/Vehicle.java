@@ -9,12 +9,12 @@ package garcia.workshop.domain.model;
  * @author ruben
  */
 public class Vehicle {
-private Long id;
-private String brand;
-private String model;
-private String licensePlate;
-private String vin;
-private Customer customer;
+    private Long id;
+    private String brand;
+    private String model;
+    private String licensePlate;
+    private String vin;
+    private Customer customer;
 
     public Vehicle() {
     }
