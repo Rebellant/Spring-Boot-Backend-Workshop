@@ -24,7 +24,17 @@ public class Customer {
         this.phone = phone;
         this.email = email;
     }
-
+    
+    // Customer factory methods
+    public static Customer create (String documentNumber, String firstName, String lastName, String phone, String email){
+    
+            return new Customer(null,documentNumber, firstName, lastName,phone,email);
+    };
+    
+    public static Customer reconstitute(Long id, String documentNumber, String firstName, String lastName, String phone, String email) {
+        return new Customer(id,documentNumber, firstName, lastName,phone,email);
+    }
+    
     public Long getId() {
         return id;
     }

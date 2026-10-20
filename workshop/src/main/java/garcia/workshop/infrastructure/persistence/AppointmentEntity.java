@@ -21,8 +21,6 @@ import java.time.LocalDateTime;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
 @Entity
 @Table (name = "appointment")
 public class AppointmentEntity {
@@ -30,6 +28,78 @@ public class AppointmentEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getAppointmentNumber() {
+        return appointmentNumber;
+    }
+
+    public void setAppointmentNumber(String appointmentNumber) {
+        this.appointmentNumber = appointmentNumber;
+    }
+
+    public LocalDateTime getScheduledAt() {
+        return scheduledAt;
+    }
+
+    public void setScheduledAt(LocalDateTime scheduledAt) {
+        this.scheduledAt = scheduledAt;
+    }
+
+    public String getVehicle_failure_Desc() {
+        return vehicle_failure_Desc;
+    }
+
+    public void setVehicle_failure_Desc(String vehicle_failure_Desc) {
+        this.vehicle_failure_Desc = vehicle_failure_Desc;
+    }
+
+    public AppointmentStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(AppointmentStatus status) {
+        this.status = status;
+    }
+
+    public CustomerEntity getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(CustomerEntity customer) {
+        this.customer = customer;
+    }
+
+    public VehicleEntity getVehicle() {
+        return vehicle;
+    }
+
+    public void setVehicle(VehicleEntity vehicle) {
+        this.vehicle = vehicle;
+    }
+
+    public WorkshopEntity getWorkshop() {
+        return workshop;
+    }
+
+    public void setWorkshop(WorkshopEntity workshop) {
+        this.workshop = workshop;
+    }
+
+    public MechanicEntity getMechanic() {
+        return mechanic;
+    }
+
+    public void setMechanic(MechanicEntity mechanic) {
+        this.mechanic = mechanic;
+    }
     
     @Column(name = "appointment_number", nullable = false, unique = true, length = 50)
     private String appointmentNumber;

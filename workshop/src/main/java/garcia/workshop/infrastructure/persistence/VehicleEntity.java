@@ -16,11 +16,58 @@ import jakarta.persistence.ManyToMany;
 import java.util.HashSet;
 import java.util.Set;
 
-@Getter
-@Setter
+
 @Entity
 @Table(name="vehicle")
 public class VehicleEntity {
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getLicensePlate() {
+        return licensePlate;
+    }
+
+    public void setLicensePlate(String licensePlate) {
+        this.licensePlate = licensePlate;
+    }
+
+    public String getVin() {
+        return vin;
+    }
+
+    public void setVin(String vin) {
+        this.vin = vin;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public Set<CustomerEntity> getCustomersList() {
+        return customersList;
+    }
+
+    public void setCustomersList(Set<CustomerEntity> customersList) {
+        this.customersList = customersList;
+    }
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
